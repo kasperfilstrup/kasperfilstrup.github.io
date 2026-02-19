@@ -14,65 +14,79 @@ description: 'Friskbrygget kaffe, lækre bagværk og velsmagende sandwiches.'
         {{ page.description }}
       </p>
     </div>
-    
-    <!-- Beverages Section -->
-    <section class="menu-page__section">
-      <h2 class="menu-page__section-title">
-        Drikkevarer
-      </h2>
-      <div class="menu-page__items">
-        {% for beverage in site.data.menu.beverages %}
-          <div class="menu-page__item">
-            <div>
-              <h3 class="menu-page__item-name">{{ beverage.name }}</h3>
-              <p class="menu-page__item-description">
-                {{ beverage.description }}
-              </p>
-            </div>
-            <p class="menu-page__item-price">{{ beverage.price }}</p>
+
+    {% for section in site.data.new_menu.sections %}
+      <section class="menu-page__section">
+        <h2 class="menu-page__section-title">{{ section.title }}</h2>
+        {% if section.description %}
+          <p class="menu-page__section-description">{{ section.description }}</p>
+        {% endif %}
+
+        {% if section.items %}
+          <div class="menu-page__items">
+            {% for item in section.items %}
+              <div class="menu-page__item">
+                <div>
+                  <span class="menu-page__item-name">{{ item.name }}</span>
+                  <p class="menu-page__item-description">{{ item.description }}</p>
+                </div>
+                <span class="menu-page__item-price">{{ item.price }}</span>
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-      </div>
-    </section>
-    
-    <!-- Pastries Section -->
-    <section class="menu-page__section">
-      <h2 class="menu-page__section-title">
-        Bagværk
-      </h2>
-      <div class="menu-page__items">
-        {% for pastry in site.data.menu.pastries %}
-          <div class="menu-page__item">
-            <div>
-              <h3 class="menu-page__item-name">{{ pastry.name }}</h3>
-              <p class="menu-page__item-description">
-                {{ pastry.description }}
-              </p>
+        {% endif %}
+
+        {% if section.subcategories %}
+          {% for sub in section.subcategories %}
+            <div class="menu-page__subcategory">
+              <h3 class="menu-page__subcategory-title">{{ sub.title }}</h3>
+              {% if sub.description %}
+                <p class="menu-page__section-description">{{ sub.description }}</p>
+              {% endif %}
+
+              {% if sub.items %}
+                <div class="menu-page__items">
+                  {% for item in sub.items %}
+                    <div class="menu-page__item">
+                      <div>
+                        <span class="menu-page__item-name">{{ item.name }}</span>
+                        <p class="menu-page__item-description">{{ item.description }}</p>
+                      </div>
+                      <span class="menu-page__item-price">{{ item.price }}</span>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              {% if sub.subcategories %}
+                {% for subsub in sub.subcategories %}
+                  <div class="menu-page__subcategory">
+                    <h4 class="menu-page__subcategory-title">{{ subsub.title }}</h4>
+                    {% if subsub.description %}
+                      <p class="menu-page__section-description">{{ subsub.description }}</p>
+                    {% endif %}
+
+                    <div class="menu-page__items">
+                      {% for item in subsub.items %}
+                        <div class="menu-page__item">
+                          <div>
+                            <span class="menu-page__item-name">{{ item.name }}</span>
+                            <p class="menu-page__item-description">{{ item.description }}</p>
+                          </div>
+                          <span class="menu-page__item-price">{{ item.price }}</span>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
             </div>
-            <p class="menu-page__item-price">{{ pastry.price }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
-    
-    <!-- Sandwiches Section -->
-    <section class="menu-page__section">
-      <h2 class="menu-page__section-title">
-        Sandwiches
-      </h2>
-      <div class="menu-page__items">
-        {% for sandwich in site.data.menu.sandwiches %}
-          <div class="menu-page__item">
-            <div>
-              <h3 class="menu-page__item-name">{{ sandwich.name }}</h3>
-              <p class="menu-page__item-description">
-                {{ sandwich.description }}
-              </p>
-            </div>
-            <p class="menu-page__item-price">{{ sandwich.price }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+          {% endfor %}
+        {% endif %}
+      </section>
+    {% endfor %}
+
+    Hos Manna Cafe bruger vi så vidt muligt økologiske råvarer og gerne fra lokale producenter.
+
   </div>
 </div>

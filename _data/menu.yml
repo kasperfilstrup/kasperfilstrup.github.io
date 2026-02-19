@@ -1,38 +1,38 @@
 beverages:
-  - name: "Latte"
-    description: "Espresso med dampet mælk"
-    price: "40 kr"
-  - name: "Cappuccino"
-    description: "Espresso med en smule mælkeskum"
-    price: "40 kr"
-  - name: "Espresso"
-    description: "Stærk, koncentreret kaffe"
-    price: "25 kr"
-  - name: "Americano"
-    description: "Espresso med varmt vand"
-    price: "30 kr"
-  - name: "Iskaffe"
-    description: "Forfriskende iskaffe"
-    price: "40 kr"
+  - name: 'Latte'
+    description: 'Espresso med dampet mælk'
+    price: '40 kr'
+  - name: 'Cappuccino'
+    description: 'Espresso med en smule mælkeskum'
+    price: '40 kr'
+  - name: 'Espresso'
+    description: 'Stærk, koncentreret kaffe'
+    price: '25 kr'
+  - name: 'Americano'
+    description: 'Espresso med varmt vand'
+    price: '30 kr'
+  - name: 'Iskaffe'
+    description: 'Forfriskende iskaffe'
+    price: '40 kr'
 
 pastries:
-  - name: "Croissant"
-    description: "Sprød bagværk med smøragtig smag"
-    price: "25 kr"
-  - name: "Kanelsnegl"
-    description: "Sød bagværk med kanelsnoninger"
-    price: "25 kr"
-  - name: "Blåbærmuffin"
-    description: "Muffin med blåbær"
-    price: "25 kr"
+  - name: 'Croissant'
+    description: 'Sprød bagværk med smøragtig smag'
+    price: '25 kr'
+  - name: 'Kanelsnegl'
+    description: 'Sød bagværk med kanelsnoninger'
+    price: '25 kr'
+  - name: 'Blåbærmuffin'
+    description: 'Muffin med blåbær'
+    price: '25 kr'
 
 sandwiches:
-  - name: "Skinke & Ost Sandwich"
-    description: "Skinke og ost på rugbrød"
-    price: "60 kr"
-  - name: "Kylling Pesto Sandwich"
-    description: "Grillet kylling med pesto på ciabatta"
-    price: "60 kr"
-  - name: "Vegetar Sandwich"
-    description: "Vegetarisk sandwich med hummus og grøntsager"
-    price: "60 kr"
+  - name: 'Skinke & Ost Sandwich'
+    description: 'Skinke og ost på rugbrød'
+    price: '60 kr'
+  - name: 'Kylling Pesto Sandwich'
+    description: 'Grillet kylling med pesto på ciabatta'
+    price: '60 kr'
+  - name: 'Vegetar Sandwich'
+    description: 'Vegetarisk sandwich med hummus og grøntsager'
+    price: '60 kr'
