@@ -28,7 +28,7 @@ description: 'Friskbrygget kaffe, lækre bagværk og velsmagende sandwiches.'
               <div class="menu-page__item">
                 <div>
                   <span class="menu-page__item-name">{{ item.name }}</span>
-                  <p class="menu-page__item-description">{{ item.description }}</p>
+                  {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                 </div>
                 <span class="menu-page__item-price">{{ item.price }}</span>
               </div>
@@ -50,7 +50,7 @@ description: 'Friskbrygget kaffe, lækre bagværk og velsmagende sandwiches.'
                     <div class="menu-page__item">
                       <div>
                         <span class="menu-page__item-name">{{ item.name }}</span>
-                        <p class="menu-page__item-description">{{ item.description }}</p>
+                        {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                       </div>
                       <span class="menu-page__item-price">{{ item.price }}</span>
                     </div>
@@ -71,7 +71,7 @@ description: 'Friskbrygget kaffe, lækre bagværk og velsmagende sandwiches.'
                         <div class="menu-page__item">
                           <div>
                             <span class="menu-page__item-name">{{ item.name }}</span>
-                            <p class="menu-page__item-description">{{ item.description }}</p>
+                            {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                           </div>
                           <span class="menu-page__item-price">{{ item.price }}</span>
                         </div>
