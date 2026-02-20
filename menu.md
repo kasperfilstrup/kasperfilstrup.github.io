@@ -27,8 +27,10 @@ description: 'Friskbrygget kaffe, lækkert bagværk og velsmagende sandwiches.'
             {% for item in section.items %}
               <div class="menu-page__item">
                 <div>
-                  <span class="menu-page__item-name">{{ item.name }}</span>
-                  {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
+                  <span class="menu-page__item-name">{{ item.name }}
+                  {% if item.name_extra != '' and item.name_extra != nil %}<span class="menu-page__item-name-extra">{{ item.name_extra }}</span>{% endif %}
+                  </span>
+                  {% if item.description != '' and item.description != nil %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                 </div>
                 <span class="menu-page__item-price">{{ item.price }}</span>
               </div>
@@ -49,8 +51,10 @@ description: 'Friskbrygget kaffe, lækkert bagværk og velsmagende sandwiches.'
                   {% for item in sub.items %}
                     <div class="menu-page__item">
                       <div>
-                        <span class="menu-page__item-name">{{ item.name }}</span>
-                        {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
+                        <span class="menu-page__item-name">{{ item.name }}
+                        {% if item.name_extra != '' and item.name_extra != nil %}<span class="menu-page__item-name-extra">{{ item.name_extra }}</span>{% endif %}
+                        </span>
+                        {% if item.description != '' and item.description != nil %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                       </div>
                       <span class="menu-page__item-price">{{ item.price }}</span>
                     </div>
@@ -70,8 +74,10 @@ description: 'Friskbrygget kaffe, lækkert bagværk og velsmagende sandwiches.'
                       {% for item in subsub.items %}
                         <div class="menu-page__item">
                           <div>
-                            <span class="menu-page__item-name">{{ item.name }}</span>
-                            {% if item.description != '' %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
+                            <span class="menu-page__item-name">{{ item.name }}
+                            {% if item.name_extra != '' and item.name_extra != nil %}<span class="menu-page__item-name-extra">{{ item.name_extra }}</span>{% endif %}
+                            </span>
+                            {% if item.description != '' and item.description != nil %}<p class="menu-page__item-description">{{ item.description }}</p>{% endif %}
                           </div>
                           <span class="menu-page__item-price">{{ item.price }}</span>
                         </div>

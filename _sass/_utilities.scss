@@ -232,6 +232,19 @@
     color: var(--primary-600);
     font-size: 1.125rem;
     font-weight: 600;
+
+    &-extra {
+      font-size: 0.875rem;
+      font-weight: 400;
+      &:before {
+        display: inline-block;
+        content: '(';
+      }
+      &:after {
+        display: inline-block;
+        content: ')';
+      }
+    }
   }
 
   &__item-description {
