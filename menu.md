@@ -86,7 +86,10 @@ description: 'Friskbrygget kaffe, lækkert bagværk og velsmagende sandwiches.'
       </section>
     {% endfor %}
 
-    Hos Manna Cafe bruger vi så vidt muligt økologiske råvarer og gerne fra lokale producenter.
+
+    <p>Hos Manna Cafe bruger vi så vidt muligt økologiske råvarer og gerne fra lokale producenter.</p>
+
+    <p>Henvend dig til personalet, hvis du har spørgsmål angående allergener</p>
 
   </div>
 </div>

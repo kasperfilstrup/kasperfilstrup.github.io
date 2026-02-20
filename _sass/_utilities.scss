@@ -65,13 +65,15 @@
   background-color: var(--color-white);
   padding: var(--spacing-6);
   border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
   @include transition(box-shadow);
   transition-duration: var(--transition-base);
 
   &:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
 
@@ -223,7 +225,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: var(--spacing-3) 0;
+    padding: var(--spacing-1) 0;
   }
 
   &__item-name {

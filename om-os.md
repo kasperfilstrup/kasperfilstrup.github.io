@@ -10,20 +10,18 @@ title: 'Om os'
         {{ page.title }}
       </h1>
       <p class="contact-page__description text-justify">
-        Manna Café er født ud af en drøm, der har levet i mange år og har sine rødder dybt forankret i familien. Jeg er vokset op med en far på De Kanariske Øer, og her opstod min kærlighed til mad og til måltidets særlige rolle, som samler familie og venner om god mad, nærvær og tid sammen.
+        Cafe Manna er en café, etableret af Jane som efter mange år i restaurationsbranchen, nu har realiseret sin drøm.
       </p>
       <p class="contact-page__description text-justify">      
-      Disse værdier danner fundamentet for Manna Café, som er et familiedrevet sted, hvor traditioner og fællesskab er i centrum. Det er udelukkende min familie og nære venner, du møder i baren, og som udlært kok står jeg selv i køkkenet og laver maden med hjertet.</p>
+        Inspirationen bag kommer fra min far på De Kanariske Øer og er spiret ud af kærlighed til måltidets særlige rolle. Det er min familie og nære venner, du møder i baren, og vi ønsker at være et levende mødested, hvor folk samles om fællesspisning og arrangementer sammen med og for lokalsamfundet. Det er også muligt at leje Manna Café til selskaber.</p>
       <p class="contact-page__description text-justify">
-      I Manna Café arbejder vi med årstidens råvarer fra lokale og bæredygtige forhandlere. Vi laver alt fra bunden. Vi bager surdejsbrød hver morgen, laver store smagfulde sandwich, serverer tapas og weekendbrunch. 
-      </p><p class="contact-page__description text-justify">
-      Drikkevarerne er en naturlig forlængelse af madoplevelsen hos os. Vi har et nøje udvalgt sortiment af vine og et velovervejet udvalg af øl, som vi skænker, når stemningen indbyder til det og særligt når solen titter frem på pladsen og kalder på et ekstra øjebliks hygge. Vores kaffe kommer fra Din Luksuskaffe i Mørkøv og er udvalgt med samme omhu som resten af vores sortiment.
-      </p><p class="contact-page__description text-justify">
-      Manna Café er et sted, hvor vi garanterer hygge, nærvær og god stemning. Vi ønsker, at du føler dig hjemme, uanset om du kommer for en stille morgen, frokost med vennerne, en hyggelig aften eller weekendbrunch med familien. 
-      </p><p class="contact-page__description text-justify">
-      Vi tager altid imod dig med et smil, og vi glæder os til at byde dig indenfor og dele vores passion for mad og hygge med dig.
-      </p><p class="contact-page__description text-justify">
-      Velkommen i Manna Café.
+        Vi arbejder med årstidens råvarer fra lokale og så vidt muligt økologiske forhandlere. Vi laver alt fra bunden. Vi bager surdejsbrød hver morgen, laver store, smagfulde sandwich, serverer tapas og weekendbrunch.</p>
+      <p class="contact-page__description text-justify">
+        Drikkevarerne er en naturlig forlængelse af madoplevelsen hos os. Vi har et nøje udvalgt sortiment af kaffe, vine og øl, som vi skænker, når stemningen indbyder til det, og særligt når solen titter frem under elmene.</p>
+      <p class="contact-page__description text-justify">
+        På Under Elmene 13 har Manna slået rod. Navnet udspringer af vores adresse og de små, vingede elmefrø, manna, der stille spreder liv omkring sig. For os symboliserer det, at vi har blik for det, der gror tæt på - mennesker, smage og fællesskab i vores eget nabolag.</p>
+      <p class="contact-page__description text-justify">
+        <img src="{{ '/assets/images/jane.jpg' | relative_url }}" alt="{{ site.title }} - Jane" width="450" height="541" fetchpriority="high" />
       </p>
     </header>
     <div class="contact-page__grid">
