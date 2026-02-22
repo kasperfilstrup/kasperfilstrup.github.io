@@ -21,7 +21,7 @@ title: 'Om os'
       <p class="contact-page__description text-justify">
         På Under Elmene 13 har Manna slået rod. Navnet udspringer af vores adresse og de små, vingede elmefrø, manna, der stille spreder liv omkring sig. For os symboliserer det, at vi har blik for det, der gror tæt på - mennesker, smage og fællesskab i vores eget nabolag.</p>
       <p class="contact-page__description text-justify">
-        <img src="{{ '/assets/images/jane.jpg' | relative_url }}" alt="{{ site.title }} - Jane" width="450" height="541" fetchpriority="high" />
+        <img src="{{ '/assets/images/jane.jpg' | relative_url }}" alt="{{ site.title }} - Jane" width="450" height="541" fetchpriority="high" style="border: 2px solid var(--primary-600)" />
       </p>
     </header>
     <div class="contact-page__grid">
