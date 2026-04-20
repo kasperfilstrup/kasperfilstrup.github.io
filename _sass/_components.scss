@@ -53,7 +53,9 @@
     }
 
     @include respond-to('lg') {
-      grid-template-columns: repeat(4, 1fr);
+      // Hours column needs more room to hold two days per row without
+      // wrapping; the first three columns just hold a short label + list.
+      grid-template-columns: 1fr 1fr 1fr auto;
       gap: var(--spacing-10);
     }
   }
@@ -62,6 +64,20 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
+  }
+
+  // Opening hours — 2 columns inside the footer column so the 6 entries
+  // flow as 3 rows of paired days (per the menu-footer Figma). Relies on
+  // site.opening_hours being ordered Tirs/Ons/Tor/Fre/Lør/Søn.
+  &__hours {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: var(--spacing-1) var(--spacing-6);
+    justify-content: start;
+
+    p {
+      white-space: nowrap;
+    }
   }
 
   &__label {
