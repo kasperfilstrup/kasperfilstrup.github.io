@@ -4,7 +4,13 @@
 
 @charset "UTF-8";
 
+// :root design tokens (shared source of truth with _critical.scss).
+@import "tokens";
+
+// SASS compile-time variables + mixins.
 @import "variables";
+
+// Below-the-fold styles. Above-the-fold rules live only in _critical.scss.
 @import "base";
 @import "layout";
 @import "components";

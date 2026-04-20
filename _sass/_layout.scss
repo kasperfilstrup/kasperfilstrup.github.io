@@ -1,30 +1,8 @@
 // ========================================
-// Layout Styles
+// Layout utilities — below-the-fold only.
+// .page-wrapper, .layout-container, main live in _critical.scss.
 // ========================================
 
-.page-wrapper {
-  position: relative;
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-
-.layout-container {
-  display: flex;
-  height: 100%;
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-main {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-
-// Container utilities
 .container {
   max-width: var(--max-width-5xl);
   margin-left: auto;
@@ -46,7 +24,6 @@ main {
   padding-right: var(--spacing-6);
 }
 
-// Grid utilities
 .grid {
   display: grid;
   gap: var(--spacing-8);

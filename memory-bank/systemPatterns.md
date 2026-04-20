@@ -26,14 +26,15 @@ liquid: false
 ├── _layouts/
 │   └── default.html            # single layout
 ├── _sass/
-│   ├── _variables.scss         # design tokens (custom props + SASS $vars + mixins)
-│   ├── _base.scss              # html/body/headings/anchors resets
-│   ├── _layout.scss            # page-wrapper, container, grid
-│   ├── _components.scss        # site-logo, site-header, site-nav, site-footer, cafe-btn, cafe-card
-│   ├── _utilities.scss         # page-section, feature-card, contact-page, menu-page
-│   ├── _home.scss              # home-page progressive-enhancement rules (reduced-motion fallback)
-│   ├── _om-os.scss             # om-os page hero (photo + text) and full-bleed video section
-│   └── _critical.scss          # above-the-fold styles (inlined into head.html)
+│   ├── _tokens.scss            # :root custom properties — imported by BOTH _critical.scss and main.scss (single source of truth, prevents drift)
+│   ├── _variables.scss         # SASS $vars + mixins only (respond-to, transition)
+│   ├── _base.scss              # below-the-fold: a, svg, button, p+p margin (html/body/headings live in _critical.scss)
+│   ├── _layout.scss            # container, grid utilities (page-wrapper lives in _critical.scss)
+│   ├── _components.scss        # below-the-fold: site-footer, hover transitions, menu__photo figure
+│   ├── _utilities.scss         # text-center, text-justify
+│   ├── _home.scss              # empty placeholder (reduced-motion fallback moved to _critical.scss)
+│   ├── _om-os.scss             # below-the-fold: __video-section, __video (hero in _critical.scss)
+│   └── _critical.scss          # ALL above-the-fold rules — site-header/nav/logo, home hero, menu page (including items), om-os hero, reduced-motion fallback. Single owner; non-critical partials do not redeclare these selectors.
 ├── assets/
 │   ├── css/main.scss           # Jekyll-compiled entry: @import all partials
 │   ├── logo.svg                # MANNA wordmark — fills are currentColor so CSS controls recolouring

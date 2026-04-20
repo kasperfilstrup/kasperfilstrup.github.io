@@ -1,19 +1,10 @@
 // ========================================
-// Component Styles
+// Components — below-the-fold or interactive enhancements.
+// Base header/logo/nav rules live in _critical.scss.
 // ========================================
 
-// Reusable logo mark (base styles in _critical.scss)
-// Colored via `currentColor` → the element's `color` property fills the mask.
-// Override per page with the `logo_color` frontmatter field (sets --logo-color on <body>).
-.site-logo {
-  color: var(--logo-color, var(--color-brand));
-}
-
-// Site header variants
+// Header home-link hover (base color + display in critical).
 .site-header__home-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--logo-color, var(--color-brand));
   @include transition(color);
 
   &:hover {
@@ -21,30 +12,18 @@
   }
 }
 
-.site-header__logo {
-  width: 5rem;
-
-  @include respond-to('md') {
-    width: 8.5rem;
-  }
-}
-
-// Site nav (red pill, interactive states — base in _critical.scss)
+// Nav link hover (base + active state in critical).
 .site-nav__link {
   @include transition(opacity);
 
   &:hover {
     opacity: 0.75;
   }
-
-  &--active {
-    font-weight: 600;
-  }
 }
 
-// Footer Component — 4-column band that inherits the page background so it blends
-// with the page it sits under (e.g. the menu page's #e7e7e7). Brand-red text,
-// hairline divider from the content above.
+// Footer — below the fold, so safe to live here. 4-column band that
+// inherits the page background (menu's #e7e7e7; om-os opts into its own
+// light footer_bg since the body is red).
 .site-footer {
   background-color: var(--footer-bg, var(--page-bg, var(--secondary-100)));
   color: var(--color-brand-dark);
@@ -103,59 +82,7 @@
   }
 }
 
-// Button Component (from your Tailwind)
-.cafe-btn {
-  @include transition(background-color);
-  align-items: center;
-  background-color: var(--color-primary);
-  border-radius: 9999px;
-  color: var(--color-white);
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 1.25rem;
-  font-weight: 700;
-  height: 3rem;
-  justify-content: center;
-  letter-spacing: var(--letter-spacing-normal);
-  line-height: 1.5;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--max-width-480);
-  min-width: 84px;
-  overflow: hidden;
-  padding: 0 var(--spacing-6);
-
-  @include respond-to('sm') {
-    font-size: 1rem;
-  }
-
-  &:hover {
-    background-color: var(--color-primary-dark);
-  }
-}
-
-// Card Component (from your Tailwind)
-.cafe-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
-  background-color: var(--color-white);
-  padding: var(--spacing-6);
-  border-radius: 0.75rem;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transition-property: box-shadow;
-  transition-timing-function: var(--transition-timing);
-  transition-duration: var(--transition-base);
-
-  &:hover {
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  }
-}
-
+// Menu page artwork figure (appears after the menu columns).
 .menu__photo {
   margin: 0;
   width: 100%;
