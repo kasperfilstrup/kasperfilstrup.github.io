@@ -10,7 +10,7 @@ liquid: false
 - **Language**: Danish throughout
 - **Design**: Inter, pink-rose primary + dusty-blue secondary palette
 - **Pages**: `/` (hero + CTA), `/menu/`, `/om-os/`
-- **Menu source**: `_data/new_menu.yml` with 3 nesting levels
+- **Menu source**: `_data/new_menu.yml` — flat list of sections (each with a title, optional time-subtitle `description`, and `items`)
 - **Deploy**: automated via `.github/workflows/jekyll.yml` on push to `main`
 
 ## ✅ Implemented
@@ -23,7 +23,7 @@ liquid: false
 
 ### Content
 - **Home** (`index.md`): fullscreen looping background video (`/assets/video/manna-temp.mp4`) with centred MANNA logo + "cafe" tagline. Red pill nav floats top-right. No footer.
-- **Menu** (`menu.md`): data-driven renderer that handles section → subcategory → sub-subcategory, optional `name_extra` parenthetical, optional descriptions, price field. Small logo top-left + red nav top-right. Dark 4-column footer at bottom.
+- **Menu** (`menu.md`): flat multi-column renderer on `#e7e7e7` page bg with red typography (`--color-brand-dark`). Sections have an uppercase title, optional time subtitle, and a list of items with name (+ optional `name_extra` parenthetical like `(V)`/`(Veg)`), price on the right, and optional description below — dividers between items. CSS multi-column (`column-count: 2` at `lg`+) auto-distributes sections across two columns. Small logo top-left + red nav top-right. Dark 4-column footer at bottom.
 - **About** (`om-os.md`): red hero section (body bg set via `page_bg` frontmatter) with `morten-og-jane.jpg` photo on the left and Jane's narrative on the right in Inter 18–20 px, followed by a full-bleed black video section reusing `manna-temp.mp4` (not a background this time — a proper embedded section between the content and the footer). White logo + inverted light-pill nav via frontmatter overrides. Dark 4-column footer at bottom.
 
 ### Styling

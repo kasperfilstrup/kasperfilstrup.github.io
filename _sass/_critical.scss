@@ -239,41 +239,40 @@ p {
   }
 }
 
-// Menu page (above the fold)
+// Menu page (above the fold) — flat multi-column, red typography.
 .menu-page {
   flex: 1;
+  color: var(--color-brand-dark);
+  padding: var(--spacing-8) var(--spacing-6) var(--spacing-16);
 
   @media (min-width: 768px) {
-    padding-left: var(--spacing-20);
-    padding-right: var(--spacing-20);
+    padding: var(--spacing-10) var(--spacing-10) var(--spacing-20);
   }
 
-  &__container {
+  &__grid {
+    max-width: 1720px;
     margin: 0 auto;
-    max-width: var(--max-width-960);
-  }
+    column-gap: var(--spacing-16);
 
-  &__header {
-    margin-bottom: var(--spacing-12);
-    text-align: center;
-  }
-
-  &__title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-
-    @media (min-width: 768px) {
-      font-size: 3rem;
+    @media (min-width: 1024px) {
+      column-count: 2;
     }
   }
 
-  &__description {
-    color: var(--primary-500);
-    font-size: 1.25rem;
+  &__section {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-12);
+  }
 
-    @media (min-width: 640px) {
-      font-size: 1.125rem;
+  &__section-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: var(--color-brand-dark);
+
+    @media (min-width: 768px) {
+      font-size: 2.25rem;
     }
   }
 }
