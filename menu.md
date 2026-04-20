@@ -30,7 +30,18 @@ page_bg: '#e7e7e7'
             </li>
           {% endfor %}
         </ul>
+
       </section>
     {% endfor %}
+    <figure class="menu__photo">
+      <img
+        src="{{ '/assets/images/menu-art.png' | relative_url }}"
+        alt="Menu artwork"
+        width="505"
+        height="760"
+        loading="eager"
+      />
+    </figure>
+
   </div>
 </div>
