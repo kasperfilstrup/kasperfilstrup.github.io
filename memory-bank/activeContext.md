@@ -2,106 +2,39 @@
 liquid: false
 ---
 
-# Active Context - Current Implementation Status
+# Active Context - Current State
 
-## Current Work Focus
+_Last refreshed: 2026-04-20_
 
-Successfully completed conversion of static HTML files to Jekyll static site with GitHub Pages deployment capability.
+## Status
 
-**PHASE 1 & 2 PERFORMANCE OPTIMIZATIONS COMPLETED** - Implemented comprehensive performance enhancements for blazing fast loading.
+Site is **live in production** at `https://mannacafe.dk`. Initial HTML → Jekyll conversion and all Tailwind-era optimizations are in the past; the project is now in ongoing-maintenance mode.
 
-**PHASE 2 ADVANCED OPTIMIZATIONS COMPLETED** - Custom Tailwind build, critical CSS inlining, and service worker caching.
+## Current Architecture at a Glance
 
-## Recent Changes Made
+- **Styling**: hand-authored SCSS in `_sass/` (no Tailwind). Design tokens as CSS custom properties in `:root`. BEM-style class naming (`site-header`, `menu-page__item-name--extra`, etc.).
+- **CSS pipeline**:
+  1. Jekyll compiles `assets/css/main.scss` (imports `_variables`, `_base`, `_layout`, `_components`, `_utilities`) on every build
+  2. Pre-commit hook runs `scripts/inline-critical-css.js` — compiles `_sass/_critical.scss` with `sass` package and injects compressed output between `<!-- CRITICAL_CSS_START -->` / `<!-- CRITICAL_CSS_END -->` markers in `_includes/head.html`
+  3. Production build (`npm run build`) runs PurgeCSS over the built `_site/` to strip unused selectors from `main.css`
+- **Data**: `_data/new_menu.yml` is the active menu (multi-level). `_data/menu.yml` is legacy/unused.
+- **Layout**: single `_layouts/default.html` wraps every page — head.html, header.html, `{{ content }}`, footer.html.
+- **Pages**: `index.md` (hero + CTA), `menu.md` (renders new_menu.yml with 3-level nesting), `om-os.md` (about + location/social).
+- **Deploy**: `.github/workflows/jekyll.yml` runs `JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.production.yml` on push to `main`, then publishes via `actions/deploy-pages`. (No PurgeCSS step in CI — only in local `npm run build`.)
 
-1. **Jekyll Site Structure**: Created complete Jekyll file structure
-2. **Component Extraction**: Separated header, footer, and head into reusable includes
-3. **Menu Data Extraction**: Converted menu HTML to structured YAML data
-4. **Page Conversion**: Transformed all three pages (index, menu, contact) to Jekyll
-5. **Configuration**: Set up \_config.yml with site-wide settings
-6. **Documentation**: Created comprehensive README for setup and usage
+## Known Cruft / Follow-ups
 
-## Active Decisions & Considerations
+- `src/input.css` — leftover Tailwind entry file, unused
+- `DEVELOPMENT.md` — describes old Tailwind workflow, outdated
+- `README.md` — Tailwind + English menu references, outdated
+- `_data/menu.yml` — old English placeholder, unused
+- `_includes/banner.html` — exists but no longer included in `default.html` (removed by commit f2c6828)
+- `_config.yml` still has `url: https://kasperfilstrup.github.io` and `baseurl: ""` — domain override may come from `_config.production.yml` or GH Pages itself; worth verifying if URLs ever look wrong
+- `assets/video/` — untracked `manna-temp.mp4` on disk
 
-### Technology Choices Made:
+## Active Decisions
 
-- **Jekyll over Astro/11ty**: Native GitHub Pages support
-- **YAML over Markdown**: Structured data easier for non-technical editing
-- **Tailwind CDN over build process**: Simplicity over optimization
-- **Component composition**: DRY principle for maintainability
-
-### Content Strategy:
-
-- Menu categories: beverages, pastries, sandwiches
-- Contact info stored in \_config.yml for reusability
-- Navigation generated from configuration
-- Preserved exact styling and responsive behavior
-
-## Next Steps for Future Conversions
-
-### When User Provides New Static HTML Files:
-
-1. **Analysis Phase**:
-
-   - Read all provided HTML files
-   - Identify common elements (header, footer, navigation)
-   - Locate menu/content data that should be extracted
-   - Note styling framework (likely Tailwind)
-   - Check for new pages or functionality
-
-2. **Structure Extraction**:
-
-   - Extract shared components to \_includes/
-   - Identify data that should go in \_data/ folder
-   - Update \_config.yml with new site information
-   - Check if new pages need different layouts
-
-3. **Data Migration**:
-
-   - Convert menu data to YAML structure
-   - Update contact information in \_config.yml
-   - Preserve any new content categories
-
-4. **Component Updates**:
-
-   - Update header.html with new navigation if changed
-   - Update footer.html if design changed
-   - Update head.html with new fonts/meta tags if needed
-   - Update or create new layouts if page structure changed
-
-5. **Page Conversion**:
-
-   - Convert each HTML page to markdown with frontmatter
-   - Ensure layout inheritance works correctly
-   - Test responsive behavior
-
-6. **Documentation Update**:
-   - Update README.md with any new setup instructions
-   - Document any new editing workflows
-
-## Current File Structure Understanding
-
-```
-/
-├── _config.yml              # Site settings and contact info
-├── _data/menu.yml           # Editable menu data
-├── _includes/
-│   ├── head.html            # Meta, fonts, scripts
-│   ├── header.html          # Header with nav
-│   └── footer.html          # Footer with links
-├── _layouts/default.html    # Base template
-├── index.md                 # Homepage
-├── menu.md                  # Menu page
-├── om-os.md                 # About us page
-├── Gemfile                  # Dependencies
-├── .gitignore               # Git exclusions
-└── README.md                # Instructions
-```
-
-## Key Implementation Notes
-
-- Preserved exact color scheme: `#1b140e`, `#5a4e45`, `#e57f19`, etc.
-- Maintained responsive breakpoints: `md:`, `lg:`, `xl:`
-- Used Liquid templating for dynamic content: `{% raw %}{{ site.title }}{% endraw %}`, `{% raw %}{% for %}{% endraw %}`
-- Structured YAML for easy editing by family member
-- GitHub Pages compatible without additional configuration
+- Keep SCSS custom-authored — no plan to reintroduce Tailwind
+- Keep critical CSS inlining via pre-commit hook (trade-off: `_includes/head.html` is auto-mutated, but first-paint stays fast)
+- Keep menu in YAML (not Markdown) — easier for Jane to edit structured data
+- Single `default` layout is sufficient; no per-page layouts needed

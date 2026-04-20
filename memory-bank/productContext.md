@@ -6,48 +6,64 @@ liquid: false
 
 ## Why This Project Exists
 
-- Family member runs a café and needs a professional online presence
-- Current situation: No website or outdated/hard-to-maintain website
-- Need for frequent menu updates due to seasonal changes, price adjustments, new items
-- Limited technical expertise for website maintenance
+- Jane (family member) opened Cafe Manna and needs a professional online presence in Danish
+- Frequent menu updates (seasonal ingredients, new wines, price adjustments)
+- Limited technical expertise → editing must be possible without a local dev setup
 
 ## Problems It Solves
 
-1. **Professional Online Presence**: Beautiful, modern website representing the café
-2. **Easy Content Management**: Non-technical family member can update menu easily
-3. **Cost-Effective Hosting**: Free GitHub Pages hosting vs. paid solutions
-4. **Maintenance-Free**: No complex CMS or backend to maintain
-5. **Mobile Experience**: Customers can view menu and contact info on phones
+1. **Online presence**: modern, Scandinavian-aesthetic site representing the café
+2. **Self-serve content management**: menu edits via GitHub.com
+3. **Zero-cost hosting**: GitHub Pages free tier
+4. **Low maintenance**: no CMS, no database, no backend
+5. **Mobile reach**: customers check menu + location on phones
 
 ## How It Should Work
 
-### For Customers:
+### For Customers
 
-- Clean, fast-loading website with café information
-- Easy-to-read menu with prices and descriptions
-- Contact information and location details
-- Beautiful imagery showcasing Scandinavian café atmosphere
+- Clean Danish-language site with café story, menu, and practical info
+- Multi-level menu (morgenmad, frokost, tapas, brunch, desserts, drinks, wine, cocktails)
+- Address linked to Google Maps, Instagram link in footer
+- Large hero image on homepage, photo of Jane on "Om os"
 
-### For Family Member (Content Editor):
+### For the Content Editor (Jane / family)
 
-- Edit menu by going to GitHub.com
-- Navigate to `_data/menu.yml` file
-- Click "Edit" button (pencil icon)
-- Make changes in simple YAML format
-- Click "Commit changes"
-- Site updates automatically within 1-2 minutes
+- Navigate to `_data/new_menu.yml` on github.com/kasperfilstrup/mannacafe
+- Click pencil icon → edit YAML → commit changes
+- GitHub Action rebuilds and publishes to `mannacafe.dk` within a few minutes
 
-### For Developer (User):
+### Menu YAML structure (3 nesting levels supported)
 
-- Can make structural changes when needed
-- Easy to update design elements across all pages
-- Clear separation between content and presentation
-- Version control of all changes through Git
+```yaml
+sections:
+  - title: Section name            # e.g. "Morgenmad"
+    description: Optional          # italic note under title
+    items:                         # leaf items
+      - name: Dish name
+        name_extra: Optional       # renders in parentheses, smaller font
+        description: Optional
+        price: "45 kr"
+    subcategories:                 # OR nested groups (e.g. "Tapasbræt", "Tapas")
+      - title: Subcategory name
+        description: Optional
+        items: [...]
+        subcategories:             # third level (e.g. Drikkevarer → Øl → Fadøl)
+          - title: ...
+            items: [...]
+```
+
+### For the Developer
+
+- Edit SCSS partials in `_sass/` for styling
+- Edit `_includes/head.html|header.html|footer.html` for chrome
+- Edit markdown files (`index.md`, `menu.md`, `om-os.md`) for page content
+- Pre-commit hook re-inlines critical CSS automatically when `_sass/*.scss` changes
 
 ## User Experience Goals
 
-- **Simplicity**: Café information is easy to find and read
-- **Beauty**: Maintains high-quality Scandinavian design aesthetic
-- **Speed**: Fast loading times on all devices
-- **Accessibility**: Works well on mobile devices for customers
-- **Trust**: Professional appearance builds customer confidence
+- **Simplicity**: fast to find address, menu, story
+- **Beauty**: maintained Playfair Display + rose/blue palette
+- **Speed**: inlined critical CSS + async main stylesheet + `font-display: optional`
+- **Accessibility**: semantic HTML, mobile-first responsive
+- **Trust**: professional Danish copy, real photos, real address/social links

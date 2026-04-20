@@ -6,35 +6,34 @@ liquid: false
 
 ## Project Overview
 
-Converting static HTML files from AI designer to a maintainable Jekyll static site hosted on GitHub Pages for a family café website.
+Live marketing website for Manna Café (Under Elmene 13, 2300 København S). Jekyll static site served from GitHub Pages on the custom domain `mannacafe.dk`. Language is Danish.
 
 ## Core Requirements
 
-- **Simple business card website** for a family café
-- **Easy menu updates** - family member should be able to edit menu without technical knowledge
-- **GitHub hosting** with automatic deployment
-- **Markdown-based menu** that can be edited directly on GitHub.com
-- **Static site generation** - no complex backend needed
+- **Simple business-card website** for a family-run café
+- **Easy menu updates** — non-technical family member edits YAML directly on GitHub.com
+- **GitHub Pages hosting** with automated deploy via GitHub Actions
+- **Nested menu data** supporting sections, subcategories, and sub-subcategories (e.g. Drikkevarer → Øl → Fadøl)
+- **Static site generation** — no backend
+- **Custom domain** with HTTPS (`mannacafe.dk`)
 
 ## User Context
 
-- User is experienced with React/Next.js/TypeScript/Tailwind/Shadcn
-- This is for a family member who needs simple updates
-- Preference for static generated sites over complex solutions
-- Custom domain support desired
+- Site owner / developer: Kasper Filstrup (experienced with React/Next.js/TypeScript)
+- Content editor: family member Jane — edits menu YAML via GitHub.com
+- Design aesthetic: Scandinavian/warm, pink-rose + dusty-blue palette, Playfair Display typography
 
 ## Technical Goals
 
-1. Convert static HTML to Jekyll with component composition
-2. Extract menu data to YAML format for easy editing
-3. Enable GitHub Pages deployment with zero configuration
-4. Maintain exact design and responsive behavior
-5. Create documentation for future updates
+1. Custom SCSS architecture with design tokens (no Tailwind)
+2. Data-driven menu rendered from `_data/new_menu.yml`
+3. Fast first paint via inlined critical CSS + PurgeCSS in production
+4. Zero-friction deploy on push to `main`
+5. Responsive behaviour maintained across breakpoints
 
 ## Success Criteria
 
-- Family member can edit menu by editing YAML file on GitHub.com
-- Site automatically rebuilds and deploys when menu is updated
-- Header/footer changes only need to be made once
-- Beautiful Scandinavian design preserved
-- Mobile responsive maintained
+- Family member can edit `_data/new_menu.yml` on GitHub.com without breaking the site
+- Push to `main` → GitHub Action builds and publishes within a few minutes
+- Site loads fast (critical CSS inline, deferred main stylesheet, optimized fonts)
+- Design and responsive behaviour consistent across pages
