@@ -2,42 +2,43 @@
 // Component Styles
 // ========================================
 
-// Header Component (base styles in _critical.scss)
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
-  color: #cfbead;
-  left: var(--spacing-4);
-
-  &__icon {
-    width: var(--spacing-10);
-    height: var(--spacing-10);
-    color: #cfbead;
-  }
-
-  &__text {
-    color: var(--color-dark);
-    font-size: 1.25rem;
-    font-weight: 300;
-    line-height: 1.25;
-    letter-spacing: var(--letter-spacing-tight-custom);
-  }
-  @include respond-to('md') {
-    position: absolute;
-  }
+// Reusable logo mark (base styles in _critical.scss)
+// Colored via `currentColor` → the element's `color` property fills the mask.
+// Override per page with the `logo_color` frontmatter field (sets --logo-color on <body>).
+.site-logo {
+  color: var(--logo-color, var(--color-brand));
 }
 
-// Header nav interactive styles (base in _critical.scss)
-.header-nav__link {
+// Site header variants
+.site-header__home-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--logo-color, var(--color-brand));
   @include transition(color);
 
   &:hover {
-    color: var(--primary-600);
+    opacity: 0.85;
+  }
+}
+
+.site-header__logo {
+  width: 3rem;
+
+  @include respond-to('md') {
+    width: 3.5rem;
+  }
+}
+
+// Site nav (red pill, interactive states — base in _critical.scss)
+.site-nav__link {
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.75;
   }
 
   &--active {
-    color: var(--primary-600);
+    font-weight: 600;
   }
 }
 

@@ -1,9 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
   <head>
     {% include head.html %}
   </head>
-  <body>
+  <body
+    class="{% if page.url == '/' %}is-home{% endif %}"
+    {% if page.logo_color %}style="--logo-color: {{ page.logo_color }};"{% endif %}
+  >
     <div class="page-wrapper">
       <div class="layout-container">
         {% include header.html %}

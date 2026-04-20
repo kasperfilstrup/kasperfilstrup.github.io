@@ -1,0 +1,20 @@
+// ========================================
+// Home page — video hero
+// ========================================
+// Base (above-the-fold) styles live in _critical.scss so the hero renders
+// before main.css arrives. This file holds progressive-enhancement rules only.
+
+.home__tagline {
+  font-family: var(--font-family);
+}
+
+// Respect reduced-motion preference: hide looping video, fall back to brand colour.
+@media (prefers-reduced-motion: reduce) {
+  .home__video {
+    display: none;
+  }
+
+  .home {
+    background-color: var(--color-pale);
+  }
+}

@@ -22,9 +22,9 @@ liquid: false
 - Clean pretty permalinks
 
 ### Content
-- **Home** (`index.md`): hero image, CTA button linking to menu
-- **Menu** (`menu.md`): data-driven renderer that handles section → subcategory → sub-subcategory, optional `name_extra` parenthetical, optional descriptions, price field
-- **About** (`om-os.md`): Jane's story, address (linked to Google Maps), phone/email, social icons, location map image (with mobile/desktop `<picture>` source)
+- **Home** (`index.md`): fullscreen looping background video (`/assets/video/manna-temp.mp4`) with centred MANNA logo + "cafe" tagline. Red pill nav floats top-right.
+- **Menu** (`menu.md`): data-driven renderer that handles section → subcategory → sub-subcategory, optional `name_extra` parenthetical, optional descriptions, price field. Small logo top-left + red nav top-right.
+- **About** (`om-os.md`): Jane's story, address (linked to Google Maps), phone/email, social icons, location map image. Same header pattern as menu.
 
 ### Styling
 - SCSS partials with design tokens as CSS custom properties
@@ -58,6 +58,7 @@ liquid: false
 - `README.md` — mentions Tailwind + old English menu structure, needs refresh
 - `_data/menu.yml` — old English placeholder data, unused, safe to delete
 - `_includes/banner.html` — no longer included in layout (removed by f2c6828); delete file or keep for future reuse
+- `assets/logo.svg` is 365 KB raw (heavily pathed hand-drawn wordmark); gzips well but worth running through SVGO if CSS mask fetch becomes a concern
 - `_config.yml` lists `tailwind.config.js` / `postcss.config.js` in `exclude` but those files no longer exist (harmless)
 - `_config.yml` has `url: https://kasperfilstrup.github.io` — worth verifying this doesn't leak into any generated URL on the live domain
 - `assets/video/manna-temp.mp4` — untracked video file sitting in working tree

@@ -20,7 +20,9 @@ Site is **live in production** at `https://mannacafe.dk`. Initial HTML → Jekyl
   3. Production build (`npm run build`) runs PurgeCSS over the built `_site/` to strip unused selectors from `main.css`
 - **Data**: `_data/new_menu.yml` is the active menu (multi-level). `_data/menu.yml` is legacy/unused.
 - **Layout**: single `_layouts/default.html` wraps every page — head.html, header.html, `{{ content }}`, footer.html.
-- **Pages**: `index.md` (hero + CTA), `menu.md` (renders new_menu.yml with 3-level nesting), `om-os.md` (about + location/social).
+- **Pages**: `index.md` (fullscreen hero video + centred logo + "cafe" tagline, no header logo), `menu.md` (renders new_menu.yml with 3-level nesting), `om-os.md` (about + location/social). Non-home pages show the small logo in the top-left of the header linking back to `/`.
+- **Logo**: `_includes/logo.html` renders a masked `<span class="site-logo">`; the single SVG lives at `assets/logo.svg` with `currentColor` fills. Colour is overridable per page via `logo_color` frontmatter → inline `--logo-color` on `<body>`. Size is driven by a sibling class (`site-header__logo`, `home__logo`, …).
+- **Brand palette (2026 redesign)**: `--color-brand: #be1e2d`, `--color-brand-dark: #9f1b27`, `--color-pale: #f0fbff` alongside the original rose/blue/grey scales.
 - **Deploy**: `.github/workflows/jekyll.yml` runs `JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.production.yml` on push to `main`, then publishes via `actions/deploy-pages`. (No PurgeCSS step in CI — only in local `npm run build`.)
 
 ## Known Cruft / Follow-ups

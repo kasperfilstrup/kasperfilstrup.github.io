@@ -1,18 +1,15 @@
 ---
 layout: default
-title: 'Velkommen til Manna Café'
-description: 'Oplev varmen fra skandinavisk gæstfrihed med vores håndlavede kaffe og bagværk.'
+description: 'Omfavner skandinavisk enkelhed, én kop ad gangen.'
+logo_color: '#be1e2d'
 ---
 
-<section class="hero">
-      <img src="{{ '/assets/images/cafe-manna.webp' | relative_url }}" alt="{{ site.title }}" width="1536" height="1024" fetchpriority="high" />
-</section>
-
-<section class="page-section page-section--light text-center">
-  <p class="page-section__description">
-    Oplev varmen fra {{ site.title }}
-  </p>
-  <a href="{{ '/menu/' | relative_url }}" class="cafe-btn">
-    <span class="truncate">Se menu</span>
-  </a>
+<section class="home">
+  <video class="home__video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="{{ '/assets/video/manna-temp.mp4' | relative_url }}" type="video/mp4" />
+  </video>
+  <div class="home__content">
+    {% include logo.html class="home__logo" %}
+    <p class="home__tagline">cafe</p>
+  </div>
 </section>

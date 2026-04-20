@@ -1,29 +1,22 @@
-<header class="site-header">
-  <!-- <div class="header-logo">
-    <div class="header-logo__icon">
-      <svg viewBox="0 0 454 352" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M240.5 0H247V200C247 252.333 236.667 290.833 216 315.5C195.333 339.833 168.333 352 135 352C114 352 96.1667 350.167 81.5 346.5C66.8333 342.5 53 335.333 40 325C13.3333 304.333 0 262.667 0 200V0H41.5V199.5C41.5 260.167 50.6667 300.667 69 321C78.3333 331 88 337.833 98 341.5C108.333 345.167 120.667 347 135 347C167 347 192.5 335.333 211.5 312C230.833 288.333 240.5 250.833 240.5 199.5V0Z"
-          fill="currentColor"
-        />
-        <path
-          d="M443 1V6H285.5V156H431.5V161H285.5V346H454V351H244V1H443Z"
-          fill="currentColor"
-        />
-      </svg>
-    </div> -->
-  <!-- <h2 class="header-logo__text">
-      {{ site.title }}
-    </h2> -->
-  <!-- </div> -->
-  <nav class="header-nav">
-    {% for item in site.navigation %}
+<header class="site-header{% if page.url == '/' %} site-header--overlay{% endif %}">
+  {% unless page.url == '/' %}
     <a
-      class="header-nav__link{% if page.url == item.url %} header-nav__link--active{% endif %}"
-      href="{{ item.url | relative_url }}"
-      data-prefetch="{{ item.url | relative_url }}"
-      >{{ item.name }}</a
+      href="{{ '/' | relative_url }}"
+      class="site-header__home-link"
+      aria-label="{{ site.title }}"
+      data-prefetch="{{ '/' | relative_url }}"
     >
+      {% include logo.html class="site-header__logo" %}
+    </a>
+  {% endunless %}
+  <nav class="site-nav">
+    {% for item in site.navigation %}
+      <a
+        class="site-nav__link{% if page.url == item.url %} site-nav__link--active{% endif %}"
+        href="{{ item.url | relative_url }}"
+        data-prefetch="{{ item.url | relative_url }}"
+        >{{ item.name }}</a
+      >
     {% endfor %}
   </nav>
 </header>
