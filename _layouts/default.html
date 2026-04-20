@@ -3,9 +3,15 @@
   <head>
     {% include head.html %}
   </head>
+  {%- capture body_styles -%}
+    {%- if page.logo_color %}--logo-color: {{ page.logo_color }};{% endif -%}
+    {%- if page.nav_bg %} --nav-bg: {{ page.nav_bg }};{% endif -%}
+    {%- if page.nav_color %} --nav-color: {{ page.nav_color }};{% endif -%}
+    {%- if page.page_bg %} --page-bg: {{ page.page_bg }};{% endif -%}
+  {%- endcapture -%}
   <body
     class="{% if page.url == '/' %}is-home{% endif %}"
-    {% if page.logo_color %}style="--logo-color: {{ page.logo_color }};"{% endif %}
+    {% unless body_styles == '' %}style="{{ body_styles | strip }}"{% endunless %}
   >
     <div class="page-wrapper">
       <div class="layout-container">
@@ -13,7 +19,9 @@
 
         <main>{{ content }}</main>
 
-        {% include footer.html %}
+        {% unless page.url == '/' %}
+          {% include footer.html %}
+        {% endunless %}
       </div>
     </div>
   </body>

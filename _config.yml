@@ -14,9 +14,21 @@ url: 'https://kasperfilstrup.github.io' # the base hostname & protocol for your 
 email: 'info@mannacafe.dk'
 phone: ''
 address: 'Under Elmene 13, 2300 København S'
+address_lines:
+  - 'Under Elmene 13'
+  - 'København S, 2300'
 social:
-  instagram: 'https://www.instagram.com/manna_cafe'
-  facebook: 'mannacafe'
+  instagram: 'https://www.instagram.com/manna_cafe/'
+  facebook: 'https://www.facebook.com/profile.php?id=61587665537345'
+
+# Opening hours (rendered in the site footer)
+opening_hours:
+  - 'Tirsdag: 8-20'
+  - 'Onsdag: 8-22'
+  - 'Torsdag: 8-22'
+  - 'Fredag: 9-24'
+  - 'Lørdag: 9-24'
+  - 'Søn: 9-15'
 
 # Navigation
 navigation:

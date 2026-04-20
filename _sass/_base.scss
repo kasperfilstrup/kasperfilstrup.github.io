@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--secondary-100);
+  background-color: var(--page-bg, var(--secondary-100));
   color: var(--primary-500);
 }
 

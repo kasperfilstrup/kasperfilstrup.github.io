@@ -1,0 +1,81 @@
+// ========================================
+// Om os page
+// ========================================
+// Hero = red full-width section (body background is already red via
+// `page_bg: '#9f1b27'` frontmatter), two-column photo + narrative.
+// Below hero: a full-bleed black video section.
+
+.om-os__hero {
+  padding: var(--spacing-8) var(--spacing-6) var(--spacing-16);
+
+  @include respond-to('md') {
+    padding: var(--spacing-12) var(--spacing-10) var(--spacing-20);
+  }
+}
+
+.om-os__hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+
+  @include respond-to('md') {
+    flex-direction: row;
+    gap: var(--spacing-16);
+    align-items: flex-start;
+  }
+}
+
+.om-os__photo {
+  margin: 0;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 480px;
+  align-self: center;
+
+  @include respond-to('md') {
+    width: 38%;
+    max-width: 520px;
+    align-self: flex-start;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 607 / 859;
+  }
+}
+
+.om-os__text {
+  flex: 1 1 auto;
+  color: #e7e7e7;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+
+  @include respond-to('md') {
+    font-size: 1.25rem;
+    padding-top: var(--spacing-2);
+  }
+
+  p + p {
+    margin-top: var(--spacing-6);
+  }
+}
+
+// Video section: full-bleed black band with a centred 16:9 video.
+.om-os__video-section {
+  background-color: #000;
+  padding: 0;
+}
+
+.om-os__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}

@@ -32,6 +32,7 @@ liquid: false
 │   ├── _components.scss        # site-logo, site-header, site-nav, site-footer, cafe-btn, cafe-card
 │   ├── _utilities.scss         # page-section, feature-card, contact-page, menu-page
 │   ├── _home.scss              # home-page progressive-enhancement rules (reduced-motion fallback)
+│   ├── _om-os.scss             # om-os page hero (photo + text) and full-bleed video section
 │   └── _critical.scss          # above-the-fold styles (inlined into head.html)
 ├── assets/
 │   ├── css/main.scss           # Jekyll-compiled entry: @import all partials
@@ -63,9 +64,34 @@ Partials consume tokens, never raw hex values. Breakpoints are SASS variables (`
 
 ### Config-Driven Chrome
 - `site.navigation` → header nav links
-- `site.social.instagram` / `site.social.facebook` → footer icons
-- `site.address` → linked to Google Maps on `om-os.md`
+- `site.social.instagram` / `site.social.facebook` → footer links (full URLs expected)
+- `site.address_lines` → footer "Visit us" column (array of strings, one per line)
+- `site.address` → linked to Google Maps on `om-os.md` (still a single string for the map query)
+- `site.opening_hours` → footer "Åbningstider" column (array of strings, one per day)
 - `site.title` / `site.description` → page `<title>` and meta description fallbacks
+
+### Per-page theme overrides (CSS custom properties via frontmatter)
+`_layouts/default.html` captures four optional frontmatter fields and emits
+them as CSS custom properties on `<body>`:
+
+| frontmatter | CSS var       | consumed by                      | fallback                |
+| ----------- | ------------- | -------------------------------- | ----------------------- |
+| `logo_color`| `--logo-color`| `.site-logo`, `.site-header__home-link` | `var(--color-brand)` |
+| `nav_bg`    | `--nav-bg`    | `.site-nav` background           | `var(--color-brand-dark)` |
+| `nav_color` | `--nav-color` | `.site-nav` text colour          | `var(--color-pale)`     |
+| `page_bg`   | `--page-bg`   | `body` background                | `var(--secondary-100)`  |
+
+Example (om-os.md frontmatter): `logo_color: '#ffffff'`, `nav_bg: '#e7e7e7'`,
+`nav_color: '#9f1b27'`, `page_bg: '#9f1b27'` — white logo + inverted
+(light-pill / red-text) nav on a red page. Home keeps defaults because its
+hero is over a video, not a static bg.
+
+### Site footer — 4-column dark band
+`_includes/footer.html` renders four columns: Visit us (address_lines),
+Kontakt (site.email), Følg med (social links), Åbningstider (opening_hours).
+Background `#000`, text `var(--color-brand-dark)` (#9f1b27). **Omitted on
+the home page** via `{% unless page.url == '/' %}` in `_layouts/default.html`
+so the fullscreen hero video isn't interrupted.
 
 ### Reusable Logo (CSS mask pattern)
 - Asset: `assets/logo.svg` — every path's `fill` is `currentColor`

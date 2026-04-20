@@ -96,7 +96,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--secondary-100);
+  background-color: var(--page-bg, var(--secondary-100));
   color: var(--primary-600);
 }
 
@@ -196,15 +196,16 @@ p {
   }
 }
 
-// Site nav — red pill in the top-right
+// Site nav — pill in the top-right. Colours overridable per page via
+// `nav_bg` / `nav_color` frontmatter (inline --nav-bg / --nav-color on <body>).
 .site-nav {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-5);
   padding: var(--spacing-2) var(--spacing-5);
-  background-color: var(--color-brand-dark);
+  background-color: var(--nav-bg, var(--color-brand-dark));
   border-radius: 7px;
-  color: var(--color-pale);
+  color: var(--nav-color, var(--color-pale));
 
   @media (min-width: 768px) {
     gap: var(--spacing-8);

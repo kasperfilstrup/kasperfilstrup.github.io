@@ -22,9 +22,9 @@ liquid: false
 - Clean pretty permalinks
 
 ### Content
-- **Home** (`index.md`): fullscreen looping background video (`/assets/video/manna-temp.mp4`) with centred MANNA logo + "cafe" tagline. Red pill nav floats top-right.
-- **Menu** (`menu.md`): data-driven renderer that handles section → subcategory → sub-subcategory, optional `name_extra` parenthetical, optional descriptions, price field. Small logo top-left + red nav top-right.
-- **About** (`om-os.md`): Jane's story, address (linked to Google Maps), phone/email, social icons, location map image. Same header pattern as menu.
+- **Home** (`index.md`): fullscreen looping background video (`/assets/video/manna-temp.mp4`) with centred MANNA logo + "cafe" tagline. Red pill nav floats top-right. No footer.
+- **Menu** (`menu.md`): data-driven renderer that handles section → subcategory → sub-subcategory, optional `name_extra` parenthetical, optional descriptions, price field. Small logo top-left + red nav top-right. Dark 4-column footer at bottom.
+- **About** (`om-os.md`): red hero section (body bg set via `page_bg` frontmatter) with `morten-og-jane.jpg` photo on the left and Jane's narrative on the right in Inter 18–20 px, followed by a full-bleed black video section reusing `manna-temp.mp4` (not a background this time — a proper embedded section between the content and the footer). White logo + inverted light-pill nav via frontmatter overrides. Dark 4-column footer at bottom.
 
 ### Styling
 - SCSS partials with design tokens as CSS custom properties
