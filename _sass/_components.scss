@@ -42,13 +42,16 @@
   }
 }
 
-// Footer Component — 4-column dark band with brand-red text.
+// Footer Component — 4-column band that inherits the page background so it blends
+// with the page it sits under (e.g. the menu page's #e7e7e7). Brand-red text,
+// hairline divider from the content above.
 .site-footer {
-  background-color: #000;
+  background-color: var(--footer-bg, var(--page-bg, var(--secondary-100)));
   color: var(--color-brand-dark);
   padding: var(--spacing-12) var(--spacing-6);
   font-size: 1rem;
   line-height: 1.5;
+  border-top: 1px solid rgba(159, 27, 39, 0.25);
 
   @include respond-to('md') {
     padding: var(--spacing-12) var(--spacing-10);

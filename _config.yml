@@ -17,7 +17,7 @@ address: 'Under Elmene 13, 2300 København S'
 address_lines:
   - 'Under Elmene 13'
   - 'København S, 2300'
-social:
+social_links:
   instagram: 'https://www.instagram.com/manna_cafe/'
   facebook: 'https://www.facebook.com/profile.php?id=61587665537345'
 

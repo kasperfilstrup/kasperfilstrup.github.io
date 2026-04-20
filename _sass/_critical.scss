@@ -179,9 +179,10 @@ p {
 }
 
 // Logo — CSS mask lets us recolor the single SVG asset via the `color` property.
+// Aspect ratio matches the tightened viewBox in assets/logo.svg (wordmark only).
 .site-logo {
   display: inline-block;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 673 / 202;
   width: 100%;
   background-color: currentColor;
   -webkit-mask: url('/assets/logo.svg') center / contain no-repeat;
@@ -189,10 +190,10 @@ p {
 }
 
 .site-header__logo {
-  width: 3rem;
+  width: 7rem;
 
   @media (min-width: 768px) {
-    width: 3.5rem;
+    width: 9rem;
   }
 }
 

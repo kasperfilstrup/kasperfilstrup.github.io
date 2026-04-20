@@ -8,6 +8,7 @@
     {%- if page.nav_bg %} --nav-bg: {{ page.nav_bg }};{% endif -%}
     {%- if page.nav_color %} --nav-color: {{ page.nav_color }};{% endif -%}
     {%- if page.page_bg %} --page-bg: {{ page.page_bg }};{% endif -%}
+    {%- if page.footer_bg %} --footer-bg: {{ page.footer_bg }};{% endif -%}
   {%- endcapture -%}
   <body
     class="{% if page.url == '/' %}is-home{% endif %}"

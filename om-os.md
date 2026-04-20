@@ -5,6 +5,7 @@ logo_color: '#ffffff'
 nav_bg: '#e7e7e7'
 nav_color: '#9f1b27'
 page_bg: '#9f1b27'
+footer_bg: '#e7e7e7'
 ---
 
 <section class="om-os__hero">
