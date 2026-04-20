@@ -83,9 +83,9 @@ Partials consume tokens, never raw hex values. Breakpoints are SASS variables (`
 
 ## Fonts & Typography
 
-- Single family: Playfair Display (loaded from Google Fonts, `font-display: optional`)
-- Preloads the specific 400-weight woff2 file to prevent FOUT
-- CSS aliases `--font-ballet` and `--font-noto` both resolve to Playfair Display (historical names kept for now)
+- Single family: **Inter** (Google Fonts variable font, full weight range 100–900, upright + italic, `font-display: optional`)
+- Single token: `--font-family: 'Inter', sans-serif;` in both `_variables.scss` and `_critical.scss`
+- Single cascade point: `html { font-family: var(--font-family); }` — no other `font-family` declarations in partials. Everything inherits. Weight/style variations are applied per element via `font-weight` / `font-style` only.
 
 ## Responsive Strategy
 

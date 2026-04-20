@@ -13,6 +13,7 @@ Site is **live in production** at `https://mannacafe.dk`. Initial HTML → Jekyl
 ## Current Architecture at a Glance
 
 - **Styling**: hand-authored SCSS in `_sass/` (no Tailwind). Design tokens as CSS custom properties in `:root`. BEM-style class naming (`site-header`, `menu-page__item-name--extra`, etc.).
+- **Typography**: Inter only. Single `--font-family` token, one cascade point on `html`, no per-component `font-family` declarations. Weight/italic variations handled per element with `font-weight`/`font-style`.
 - **CSS pipeline**:
   1. Jekyll compiles `assets/css/main.scss` (imports `_variables`, `_base`, `_layout`, `_components`, `_utilities`) on every build
   2. Pre-commit hook runs `scripts/inline-critical-css.js` — compiles `_sass/_critical.scss` with `sass` package and injects compressed output between `<!-- CRITICAL_CSS_START -->` / `<!-- CRITICAL_CSS_END -->` markers in `_includes/head.html`

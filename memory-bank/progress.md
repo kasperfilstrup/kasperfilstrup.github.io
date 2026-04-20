@@ -8,7 +8,7 @@ liquid: false
 
 - **Live at** `https://mannacafe.dk` via GitHub Pages + CNAME
 - **Language**: Danish throughout
-- **Design**: Playfair Display, pink-rose primary + dusty-blue secondary palette
+- **Design**: Inter, pink-rose primary + dusty-blue secondary palette
 - **Pages**: `/` (hero + CTA), `/menu/`, `/om-os/`
 - **Menu source**: `_data/new_menu.yml` with 3 nesting levels
 - **Deploy**: automated via `.github/workflows/jekyll.yml` on push to `main`

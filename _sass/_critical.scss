@@ -45,9 +45,7 @@
   --color-white: #fff;
 
   // Typography
-  --font-ballet: 'Playfair Display', sans-serif;
-  --font-noto: 'Playfair Display', sans-serif;
-  --font-family: var(--font-noto);
+  --font-family: 'Inter', sans-serif;
 
   // Spacing
   --spacing-1: 0.25rem;
@@ -105,7 +103,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
   overflow-x: hidden;
-  font-family: var(--font-family);
 }
 
 .layout-container {

@@ -10,7 +10,7 @@ liquid: false
 - **Hosting**: GitHub Pages with custom domain `mannacafe.dk` (CNAME file)
 - **Styling**: hand-authored SCSS compiled by Jekyll's built-in Sass converter; PurgeCSS for production
 - **Critical CSS**: inlined via Node script (`sass` npm package) + husky pre-commit hook
-- **Fonts**: Playfair Display from Google Fonts (preload + async CSS)
+- **Fonts**: Inter from Google Fonts (variable font, weight range 100–900 + italic, async CSS via `rel=preload`/`onload`)
 - **Version control / CI**: Git, GitHub Actions (`.github/workflows/jekyll.yml`)
 
 ## Dependencies
@@ -94,7 +94,7 @@ npm run build          # runs Jekyll + PurgeCSS
 
 - Critical CSS inlined in `<head>` (generated from `_sass/_critical.scss`)
 - Main stylesheet deferred via `rel=preload` + `onload=this.rel='stylesheet'`
-- Google Fonts: `dns-prefetch`, `preconnect`, single woff2 preload, `font-display: optional`
+- Google Fonts: `dns-prefetch`, `preconnect`, async stylesheet via `rel=preload` + `onload`, `font-display: optional` (no specific woff2 preload — variable font URL isn't stable enough to hardcode)
 - Favicon as inline data URI SVG (no extra request)
 - Images as WebP with explicit width/height to avoid layout shift
 - `fetchpriority="high"` on hero image
